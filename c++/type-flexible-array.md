@@ -7,7 +7,7 @@ Room for improvement could come in the way of a more universal length function (
 
 The array is initiliazed with an `int` at its start address, but returns the address past that `int` cast as a pointer to the desired type, with memory allocated for that type and the given size. This keeps the `length` address *behind* the array but accessible to functions on arrays.
 
-The first element is an `int` which tracks the current length and can be set at creation
+`T t` remains unused as data - it simply informs the  template of what type  to cast in the `init_arr` function.
 
 ```cpp
 #include <iostream>
