@@ -1,12 +1,3 @@
-## Type/length flexible array from scratch in C++
-
-The goals of this challenge was designing functions to create, append to and retrieve from arrays of a type chosen at initialization. 
-
-The array is initiliazed with an `int` at its start address, but returns the address past that `int` cast as a pointer to the desired type, with memory allocated for that type and the given size. This keeps the `length` address *behind* the array and accessible to functions on arrays.
-
-The first element is an `int` which tracks the current length and can be set at creation
-
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -30,44 +21,36 @@ T* init_arr(T t, long unsigned int size){
 	//Returns address where elements of T start
 	return (T*)elem_start;
 }
-```
-The length of the array is given by `*((long unsigned int*)arr - sizeof(long unsigned int))`, the address given by `init_arr` minus the size of its hidden first element.
 
-```cpp
 template <class T>
 long unsigned int len_arr(T* arr) {
 	return *((long unsigned int*)arr - sizeof(long unsigned int));
 }
-```
-`append_arr` uses the `len_arr` function above to get the legnth and determine how far down the array to append the given item. It would have been nice to have a solution that reused the function to also increment the length value in the array itself, rather than reusing the same line of code.
 
-```cpp
 template <class T>
 void append_arr(T* arr, T item) {
+	//Get the current length so it knows how far up the array to travel to assign item to.
 	long unsigned int length = len_arr(arr);
 
-	//Increment the length value in the array.
+	//Increment the length. 
 	*((long unsigned int*)arr - sizeof(long unsigned int)) += 1;
 
 	T* next_address = arr + length;
 	*next_address = item;
 }
-```
-Since the array's return  address starts past the hidden `length` index, this function is straightforward:
-```cpp
+
 template <class T>
 T retrieve(T* arr, long unsigned int index) {
 	T item = *(arr + index);
 	return item;
 }
-```
-The basic testing:
-```cpp
+
 int main(void) {
 	string i = "1234";
 	string* my_arr = init_arr(i, 10);
 
 	cout << "Arr addres @ " << ((int*)my_arr - sizeof(int)) << endl;
+
 
 	string aa = "test aa"; string bb = "test bb"; string cc = "test cc";
 
@@ -82,6 +65,7 @@ int main(void) {
 	append_arr(my_arr, cc);
 	cout << "current length: " << len_arr(my_arr) << endl;
 
+
 	string a = retrieve(my_arr, 0);
 	string b = retrieve(my_arr, 1);
 	string c = retrieve(my_arr, 2);
@@ -92,4 +76,3 @@ int main(void) {
 
 	return 0;
 }
-```
