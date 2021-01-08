@@ -5,7 +5,7 @@ Building from scratch array functionality in C++ to familiarize oneself intamate
 The best parts of this function set are the simple and intuitive user end functions, which are internally light, easy to read, and general.
 Room for improvement could come in the way of a more universal length function (see below) and the inclusion of a wider set of features like editing or deleting specific indices.
 
-The array is initiliazed with an `int` at its start address, but returns the address past that `int` cast as a pointer to the desired type, with memory allocated for that type and the given size. This keeps the `length` address *behind* the array and accessible to functions on arrays.
+The array is initiliazed with an `int` at its start address, but returns the address past that `int` cast as a pointer to the desired type, with memory allocated for that type and the given size. This keeps the `length` address *behind* the array but accessible to functions on arrays.
 
 The first element is an `int` which tracks the current length and can be set at creation
 
