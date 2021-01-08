@@ -1,6 +1,9 @@
 ## Type/length flexible array from scratch in C++
 
-The goals of this challenge was designing functions to create, append to and retrieve from arrays of a type chosen at initialization. 
+Building from scratch array functionality in C++ to familiarize oneself intamately with the data structure and practice clean code.
+
+The best parts of this function set is the intuitive user end functions, light and easy to modify functions.
+Room for improvement could come in the way of a more universal length function (see below) and the inclusion of a wider set of features like editing or delting specific indices.
 
 The array is initiliazed with an `int` at its start address, but returns the address past that `int` cast as a pointer to the desired type, with memory allocated for that type and the given size. This keeps the `length` address *behind* the array and accessible to functions on arrays.
 
