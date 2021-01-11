@@ -90,8 +90,8 @@ int main(void) {
 	string c = retrieve(my_arr, 2);
     
 	cout << a << endl;
-    cout << b << endl;
-    cout << c << endl;
+	cout << b << endl;
+	cout << c << endl;
 
 	return 0;
 }
