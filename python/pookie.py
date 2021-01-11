@@ -9,7 +9,7 @@ import math
 import time
 from collections import deque
 
-TOKEN = 'NzA2Njc0MTYyNDQ1NTgyNDE2.XrBbNg.uQRqBE_5Q0g6EVxQxiyiEgfDPGA'
+TOKEN = '[TOKEN]'
 
 client = discord.Client()
 
