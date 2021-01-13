@@ -1,4 +1,6 @@
-##Finding the perimeter 'most outside' a set of points. (Python)
+## Finding the perimeter 'most outside' a set of points. (Python)
+
+![Example of program output](outside-perimeters.png)
 
 Early into my programming hobby I was introduced to something called the travelling salesman problem - find the shortest path in a set of points which reaches all points and returns where it started. It wasn't long after reading something along the lines of "the only known method to find the shortest route everytime is guess and check," to become fascinated with the problem and attempt to come up with algorithms to solve it efficiently.
 
