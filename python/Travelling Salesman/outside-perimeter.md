@@ -105,9 +105,7 @@ To generalize the code, all candidates singular or in multiplicity are piped thr
 		start_point = self.border[-1]  #work outwards from last connected point
 		candidates = {}				   #sorted in dict in case multiple radians are equal
 
-```
-The first case to catch is if the point being checked is the current point being pivoted around, or is in `exclusions`, meaning it is part of the current border or not eligible for reasons decided by another function.
-```py
+
 		# "Find the smallest radian that's larger than the start radian" **
 		for point in self.available_points:
 
