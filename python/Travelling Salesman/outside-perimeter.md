@@ -90,7 +90,7 @@ class wrap:
 ```
 `next_point()` is where it all goes down. `self.radian` was initialized as `0`, since the starting point is a lowermost point. This means at worst the first connection is completely level but never convex in the context of the final border.
 
-`candidate_radian` is initialized at the max possible value, remember that since the rotation has to maintain its direction that in this sense $\frac{pi}{2}$ and $0$ are being considered as two ends of a spectrum. `candidate_radian` is used to keep track of a radian from a given point which is larger than `start_radian` but as small as possible otherwise, ensuring that any points intersected while rotating the line are immediately adopted as the new pivot.
+`candidate_radian` is initialized at the max possible value, remember that since the rotation has to maintain its direction that in this sense pi over two and zero are being considered as two ends of a spectrum. `candidate_radian` is used to keep track of a radian from a given point which is larger than `start_radian` but as small as possible otherwise, ensuring that any points intersected while rotating the line are immediately adopted as the new pivot.
 
 The `candidates` dictionary helps with another crucial edge case which might be easy to overlook. What happens when two or more points share the same radian, and that radian is the smallest possible (meaning it determines the next point). The answer here is that each point in the dict is associated with its distance from the pivot point, and if the dict remains unreset by a smaller radian remaining in the unchecked list, then each point is connected in order of distance as a straight line.
 
