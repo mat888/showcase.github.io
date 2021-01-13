@@ -16,7 +16,7 @@ print('---------------------start-----------------------')
 ```
 `minVert()` will take the list of tuples representing the two dimensional points and find the pair the minimum vertical value. This behavior is assumed by the main function, so it isn't as modular as it could be considering the possible desire to experiment with starting values. 
 
-Note that the grid starts from the top left corner, mainly so you can appreciate the damage to my sanity that dealing with multiple edge cases and directed radians in a non standard orientation may have done.
+Note that the grid's origin is located at the top left corner, mainly so you can appreciate the damage to my sanity that dealing with multiple edge cases and directed radians in a non standard orientation may have done.
 
 ```py
 def minVert(li): #given list of point pairs, finds pair with smallest first value
