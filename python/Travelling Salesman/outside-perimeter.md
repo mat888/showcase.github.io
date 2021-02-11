@@ -4,9 +4,9 @@
 
 Early into my programming hobby I was introduced to something called the travelling salesman problem - find the shortest path in a set of points which reaches all points and returns where it started. It wasn't long after reading something along the lines of "the only known method to find the shortest route everytime is guess and check," to become fascinated with the problem and attempt to come up with algorithms to solve it efficiently.
 
-Iterating on an earlier idea whose JSbin format was lost to an OS reinstall, and becoming more of a programming exercise than anything else, I had the idea after watching 3Blue1Brown's <a href="https://www.youtube.com/watch?v=M64HUIJFTZM">video</a> on rotating lines and intersecting points that a good place to start would be to determine from the set of points to most 'outside' perimeter - or the perimeter determined by choosing one point, then rotating a line around that first point until it intersects with another one, then repeating until the set is enclosed.
+Iterating on an earlier idea whose JSbin format was lost to an OS reinstall, and becoming more of a programming exercise than anything else, I had the idea after watching 3Blue1Brown's <a href="https://www.youtube.com/watch?v=M64HUIJFTZM">video</a> on rotating lines and intersecting points that a good place to start would be to determine from the set of points "the most 'outside' perimeter" - or the perimeter determined by choosing one point, then rotating a line around that first point until it intersects with another one, then repeating until the set is enclosed (with the initial point being on some linear extreme of the set).
 
-In practice, this turned out to be much more difficult to implement than expected, and has set a personal record for most edge cases dealt with, but it does work, and this post will be going over some of the details and challenges.
+In practice, this turned out to be more difficult to implement than expected, and has set a personal record for most edge cases dealt with, but it does work, and this post will be going over some of the details and challenges.
 
 ```py
 import math
@@ -94,6 +94,8 @@ class wrap:
 
 The `candidates` dictionary helps with another crucial edge case which might be easy to overlook. What happens when two or more points share the same radian, and that radian is the smallest possible (meaning it determines the next point). The answer here is that each point in the dict is associated with its distance from the pivot point, and if the dict remains unreset by a smaller radian remaining in the unchecked list, then each point is connected in order of distance as a straight line.
 
+The central data structure to be aware of here is the dictionary of points with the `key` being the `dist`ance from the `start_point` and the `value` being the `point`. This allows for multiple points with the same angle from the `start_point` to be sorted by distance and connected in order.
+
 To generalize the code, all candidates singular or in multiplicity are piped through the dictionary.
 
 ```py
@@ -126,8 +128,10 @@ To generalize the code, all candidates singular or in multiplicity are piped thr
 				dist = get_distance(start_point, point)
 				candidates[dist] = point #finding a radian equal to current -
 				#- candidate adds to a dict that becomes a straight line of points.
-				# print(radian)
+				# These points get sorted below and before being connected.
 
+			# If the radian is in fact greater than the start, but lesser than -
+			# - all other candidates so far.
 			if (radian >= start_radian and radian < candidate_radian): 
 				dist = get_distance(point, start_point)
 				candidates = {} #finding a radian closer to abs radian -
