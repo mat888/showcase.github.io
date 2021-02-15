@@ -6,9 +6,9 @@ import asyncio
 import discord
 from discord.ext import commands
 
-TOKEN = 'NzA2Njc0MTYyNDQ1NTgyNDE2.XrBbNg.uQRqBE_5Q0g6EVxQxiyiEgfDPGA'
-GUILD = 'Olympia International Cooperative Gaming Initiative'
-GUILD = 'Matteo\'s Study Group'
+TOKEN = 'TOKEN'
+GUILD = 'guild'
+GUILD = 'guild'
 
 #Olympia Guild channel ids
 general_chat_id = 368577449929211925 #general text chat id
@@ -18,33 +18,15 @@ salty_bet_chat_id = 712168999126827028 # salty bet text chat id
 off_topic_chat_id = 701083383840637036 
 
 server = 'irc.chat.twitch.tv'
-port = 6667
+port = 'port'
 nickname = 'salty_bet_bot'
-token = 'oauth:1tb8xq2jkhs4b5cqy3bs89xveqngwp'
+token = 'token'
 channel = '#saltybet'
 
 channel_g = off_topic_chat_id
 
 emotes = { #type emote in format " '<:sethboi:578495534226997248>' " in chat.
-'sethboi' :578495534226997248,
-'kale' :578672333078659073,
-'40pour' :578769965029654530,
-'cmonbrug' :578770036370702340,
-'40bleh' :578772605826498570,
-'slangSleeper' :578772669223272469,
-'boarderOllie' :578795848998322186,
-'pepis' :578796126615109633,
-'AYAYA' :578796294621888522,
-'ssbm' :578797053803626509,
-'clintFOCUS' :578801224615329822,
-'chomp' :583839155247775745,
-'boardeBird' :694380849126440981,
-'boardeHi' :696460615203422310,
-'kks' :696483270501597196,
-'boardeAHH' :713151710591189052,
-'boardeLove' :713933180981477406,
-'boardeCLUTCH' :713933240011849811,
-'monkaGun' :71456539644290663}
+} #removed for privacy
 
 first_loop_global = True  #keeps function from executing match results logic if
                           #first message recieved is of results (no fight info yet)
