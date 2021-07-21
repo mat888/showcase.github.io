@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#for one liners copies
+
+#copies first line output of command to clipboard
+
+h=${1?Error: no command given (command should be given as argument)}
+
+(echo -n $h) | xclip -sel clip

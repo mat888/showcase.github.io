@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#copies current directory to clipboard using xclip
+(echo -n "\"" && echo -n $(pwd) && echo -n "\"") | xclip -sel clip
