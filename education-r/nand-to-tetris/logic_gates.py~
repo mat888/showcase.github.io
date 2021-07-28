@@ -1,0 +1,26 @@
+def nand(a,b):
+    if (a+b == 2):
+        return 0
+    else:
+        return 1
+
+def nt(a):
+    return ((a+1) % 2)
+
+def and_(a, b):
+    return nt(
+        nand(a, b)
+    )
+
+def or_(a, b): #turn 0,1 and 1,1 into 0,0 or 0,1
+    return nand(
+        nand(
+            nand(a,b),
+            nand(a,b)
+        ),
+        nand(
+            nand(a,b),
+            nand(a,b)
+        )
+    )
+
